@@ -16,16 +16,28 @@
 </template>
 <script lang="babel">
     import api from '../../api'
+    import { mapActions, mapGetters } from 'vuex'
     export default {
+        mounted: function () {
+            this.form.username = this.getUserName;
+        },
         data() {
             return {
                 form: {
-                    username: '',
+                    username:'',
                     password: '',
                 }
             }
         },
+        computed : {
+            ...mapGetters({
+                getUserName : 'getUserName'
+            })
+        },
         methods: {
+            ...mapActions({
+              updateUserName: 'updateUserName'
+            }),
             submitLogin() {
 
                 if(!this.form.username || !this.form.password){
@@ -34,6 +46,7 @@
                 }
                 this.form.url = 'api'
                 api.getData(this.form).then(data => {
+                    this.updateUserName(this.form.username)
                     this.$router.replace('/register')
                 }, error => {
                     this.errorMsg("登录报错，"+error);

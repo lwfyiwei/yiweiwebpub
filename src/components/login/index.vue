@@ -17,7 +17,7 @@
         margin-right: auto;
     }
     .fade-enter-active, .fade-leave-active {
-	  transition: all .1s ease;
+	  transition: all .1s ease 0;
 	}
 	.fade-enter, .fade-leave-active {
       opacity: 0;

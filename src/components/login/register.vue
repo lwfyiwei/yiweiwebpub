@@ -1,5 +1,8 @@
 <template>
 	<el-form :model="ruleForm2" ref="ruleForm2" label-width="100px" class="content">
+    <el-form-item prop="userName" label="用户名">
+      <el-input v-model="userName"></el-input>
+    </el-form-item>
     <el-form-item prop="email" label="邮箱">
       <el-input v-model="ruleForm2.email"></el-input>
     </el-form-item>
@@ -16,6 +19,7 @@
   </el-form>
 </template>
 <script lang="babel">
+  import { mapGetters } from 'vuex'
   export default {
     data() {
       return {
@@ -26,8 +30,14 @@
         }
       }
     },
+    computed : {
+      ...mapGetters({
+        userName : 'getUserName'
+      })
+    },
     methods: {
             handleSubmit2() {
+               console.log("handleSubmit2")
             },
             toLogin(){
                 this.$router.push('/login')

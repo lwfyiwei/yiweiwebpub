@@ -1,8 +1,6 @@
 import {
-    GLOBAL_HIDEMSG,
-    GLOBAL_LOADDING,
-    GLOBAL_PROGRESS,
-    GLOBAL_SHOWMSG
+    USER_ISLOGIN,
+    USER_USERNAME
 } from '../mutation-types'
 
 const state = {
@@ -16,18 +14,8 @@ const mutations = {
     [USER_ISLOGIN](state, isLogin) {
         state.isLogin = isLogin
     },
-    [USER_USERNAME](state, num) {
-        state.progress = num
-    },
-    [GLOBAL_SHOWMSG](state, action) {
-        state.message = {...action }
-    },
-    [GLOBAL_HIDEMSG](state) {
-        state.message = {
-            type: '',
-            content: '',
-            title: ''
-        }
+    [USER_USERNAME](state, userName) {
+        state.userName = userName
     }
 }
 

@@ -20,3 +20,7 @@ export const showMsg = ({commit}, config) => {
 export const hideMsg = () => {
     toastr.clear()
 }
+
+export const updateUserName = ({ commit }, data) => {
+        commit(types.USER_USERNAME, data)
+}
