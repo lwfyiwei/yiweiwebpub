@@ -1,5 +1,7 @@
 /* global $ */
+import Vue from 'vue'
 import store from '../store'
+import VueResource from 'vue-resource'
 
 var hostdoamin = ""
 if(process.env.NODE_ENV === 'production'){
@@ -10,30 +12,18 @@ if (process.env.NODE_ENV === 'test') {
     hostdoamin = 'http://test.com'
 }
 
-$.ajaxSetup({
-    url: `${hostdoamin}/api/`,
-    global: true,
-    type: 'POST',
-    dataType: 'json'
-})
+Vue.use(VueResource)
+
+Vue.http.options.root = hostdoamin
+Vue.http.options.emulateJSON = true
+Vue.http.options.xhr = { withCredentials: true }
 
 export default {
-    getFromConfig(config) {
+    getDataByVR(url, param) {
         return new Promise((resolve, reject) => {
-            $.ajax({ data: config }).then(data => {
-                resolve(data)
+            Vue.http['post'](`${hostdoamin}/${url}`, param).then(data => {
+                resolve(data.body)
             }, error => {
-                store.dispatch('showMsg', error.responseText.toString())
-                reject(error)
-            })
-        })
-    },
-    getData(config) {
-        return new Promise((resolve, reject) => {
-            $.ajax({url: `${hostdoamin}/${config.url}`, global: false, data: config }).then(data => {
-                resolve(data)
-            }, error => {
-                store.dispatch('showMsg', error.responseText.toString())
                 reject(error)
             })
         })

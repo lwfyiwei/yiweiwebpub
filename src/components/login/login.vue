@@ -44,8 +44,7 @@
                     this.errorMsg("请输入用户名和密码")
                     return false
                 }
-                this.form.url = 'api'
-                api.getData(this.form).then(data => {
+                api.getDataByVR('api', this.form).then(data => {
                     this.updateUserName(this.form.username)
                     this.$router.replace('/register')
                 }, error => {
