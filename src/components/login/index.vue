@@ -1,18 +1,13 @@
 <template>
     <div class="container">
       <transition name="fade" mode="out-in">
-        <router-view class="router"></router-view>
+        <router-view></router-view>
       </transition>
     </div>
 </template>
 <style type="text/css">
 	.container {
-        width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .router{
-    	width: 600px;
+        width: 700px;
         margin-left: auto;
         margin-right: auto;
     }
