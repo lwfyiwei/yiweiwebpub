@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import cookies from 'js-cookie'
-import index from 'components/login/index.vue'
 import login from 'components/login/login.vue'
 import register from 'components/login/register.vue'
 
