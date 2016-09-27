@@ -5,10 +5,6 @@ import api from '../api'
 import toastr from 'toastr'
 toastr.options.positionClass = 'toast-top-center'
 
-export const gProgress = ({commit}, num) => {
-    commit(types.GLOBAL_PROGRESS, num)
-}
-
 export const showMsg = ({commit}, config) => {
     let content, type
     if (typeof config === 'string') {

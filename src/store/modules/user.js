@@ -6,20 +6,17 @@ import {
 } from '../mutation-types'
 
 const state = {
-    loading: false,
-    progress: 0,
-    message: {
-        type: '',
-        content: '',
-        title: ''
-    }
+    isLogin: true,
+    userName:'',
+    userMail:'',
+    accountBalance:''
 }
 
 const mutations = {
-    [GLOBAL_LOADDING](state, status) {
-        state.loading = status
+    [USER_ISLOGIN](state, isLogin) {
+        state.isLogin = isLogin
     },
-    [GLOBAL_PROGRESS](state, num) {
+    [USER_USERNAME](state, num) {
         state.progress = num
     },
     [GLOBAL_SHOWMSG](state, action) {
