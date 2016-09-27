@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import cookies from 'js-cookie'
+import store from '../store/'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,15 @@ const scrollBehavior = to => {
         position.y = 0
     }
     return position
+}
+
+const guardRoute = (route, redirect, next) => {
+    let isLogin = store.state.user.isLogin
+    if (!isLogin) {
+        redirect('/')
+    } else {
+        next()
+    }
 }
 
 const login = resolve => {
@@ -35,7 +45,7 @@ const router = new VueRouter({
     routes: [
         { name:'index', path: '/', component: login },
         { name:'login', path: '/login', component: login },
-        { name:'register', path: '/register', component: register }
+        { name:'register', path: '/register', component: register, beforeEnter: guardRoute }
     ]
 })
 
