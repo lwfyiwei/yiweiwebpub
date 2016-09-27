@@ -5,6 +5,11 @@
       </transition>
     </div>
 </template>
+<script lang="babel">
+	export default {
+
+	}
+</script>
 <style type="text/css">
 	.container {
         width: 700px;
