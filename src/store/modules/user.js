@@ -23,7 +23,7 @@ const mutations = {
         state.progress = num
     },
     [GLOBAL_SHOWMSG](state, action) {
-        state.message = {...action}
+        state.message = {...action }
     },
     [GLOBAL_HIDEMSG](state) {
         state.message = {

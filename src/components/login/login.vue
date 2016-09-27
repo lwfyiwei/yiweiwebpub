@@ -46,7 +46,7 @@
             errorMsg(msg) {
                 this.$message({
                   showClose: true,
-                  duration:1500,
+                  duration:2000,
                   message: msg,
                   type: 'error'
                 });
@@ -61,7 +61,7 @@
         margin-right: auto;
     }
     .content{
-        width: 300px;
+        width: 200px;
         margin-left: auto;
         margin-right: auto;
     }
