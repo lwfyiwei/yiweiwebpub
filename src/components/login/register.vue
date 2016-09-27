@@ -1,5 +1,5 @@
 <template>
-	<el-form :model="ruleForm2" ref="ruleForm2" label-width="100px" class="content">
+	<el-form :model="ruleForm2" ref="ruleForm2" label-width="100px" class="reg_content">
     <el-form-item prop="userName" label="用户名">
       <el-input v-model="userName"></el-input>
     </el-form-item>
@@ -46,9 +46,8 @@
         }
 }
 </script>
-<style type="text/css">
-
- .content{
+<style>
+ .reg_content{
         width: 600px;
         margin-left: auto;
         margin-right: auto;

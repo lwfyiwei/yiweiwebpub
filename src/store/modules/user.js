@@ -4,7 +4,7 @@ import {
 } from '../mutation-types'
 
 const state = {
-    isLogin: true,
+    isLogin: false,
     userName:'',
     userMail:'',
     accountBalance:''

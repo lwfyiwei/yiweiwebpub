@@ -12,7 +12,7 @@
 </script>
 <style type="text/css">
 	.container {
-        width: 700px;
+        width: 800px;
         margin-left: auto;
         margin-right: auto;
     }

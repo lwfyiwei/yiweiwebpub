@@ -66,14 +66,14 @@
         }
     }
 </script>
-<style type="text/css">
+<style>
     .login{
         width: 600px;
         margin-left: auto;
         margin-right: auto;
     }
     .content{
-        width: 200px;
+        width: 600px;
         margin-left: auto;
         margin-right: auto;
     }

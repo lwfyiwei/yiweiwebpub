@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import cookies from 'js-cookie'
-import login from 'components/login/login.vue'
-import register from 'components/login/register.vue'
 
 Vue.use(VueRouter)
 
@@ -16,6 +14,18 @@ const scrollBehavior = to => {
         position.y = 0
     }
     return position
+}
+
+const login = resolve => {
+  require.ensure(['components/login/login.vue'], () => {
+    resolve(require('components/login/login.vue'))
+  })
+}
+
+const register = resolve => {
+  require.ensure(['components/login/register.vue'], () => {
+    resolve(require('components/login/register.vue'))
+  })
 }
 
 const router = new VueRouter({
