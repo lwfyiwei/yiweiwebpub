@@ -7,6 +7,10 @@ import user from './modules/user'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+	state :{
+		test :'123',
+		wheet:'456'
+	},
     actions,
     getters,
     modules: {

@@ -21,6 +21,6 @@ export const hideMsg = () => {
     toastr.clear()
 }
 
-export const updateUserName = ({ commit }, data) => {
-        commit(types.USER_USERNAME, data)
+export const updateUserName = ({ commit, rootState }, data) => {
+        commit(types.USER_USERNAME, data+rootState.test)
 }
