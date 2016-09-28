@@ -82,12 +82,12 @@
     }
 </script>
 <style>
-    .login{
+    .login {
         width: 600px;
         margin-left: auto;
         margin-right: auto;
     }
-    .content{
+    .content {
         width: 600px;
         margin-left: auto;
         margin-right: auto;
