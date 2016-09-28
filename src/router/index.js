@@ -45,8 +45,17 @@ const router = new VueRouter({
     routes: [
         { name:'index', path: '/', component: login },
         { name:'login', path: '/login', component: login },
-        { name:'register', path: '/register', component: register, beforeEnter: guardRoute }
+        { name:'regi', path: '/register', component: register, beforeEnter: guardRoute, meta: {requiresAuth: true }}
     ]
+})
+
+router.beforeEach((route, redirect, next) => {
+    console.log('router.beforeEach')
+    next()
+})
+
+router.afterEach(route => {
+    console.log('router.afterEach')
 })
 
 export default router

@@ -46,14 +46,14 @@
                 }
                 api.getDataByVR('api', this.form).then(data => {
                     this.updateUserName(this.form.username)
-                    this.$router.replace('/register')
+                    this.$router.replace({name: 'regi'})
                 }, error => {
                     this.errorMsg("登录报错，"+error);
                 })
 
             },
             toRegister(){
-                this.$router.replace('/register')
+                this.$router.replace({name: 'regi'})
             },
             errorMsg(msg) {
                 this.$message({
@@ -63,6 +63,16 @@
                   type: 'error'
                 });
             }
+        },
+        beforeRouteEnter (route, redirect, next) {
+            console.log('login beforeRouteEnter')
+            next(vm => {
+                console.log('hello world')
+            })
+        },
+        beforeRouteLeave (route, redirect, next) {
+            console.log('login beforeRouteLeave',this.form.username)
+            next()
         }
     }
 </script>
