@@ -73,6 +73,11 @@
         beforeRouteLeave (route, redirect, next) {
             console.log('login beforeRouteLeave',this.form.username)
             next()
+        },
+        watch: {
+            $route() {
+                console.log('login watch $route')
+            }
         }
     }
 </script>

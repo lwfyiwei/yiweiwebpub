@@ -27,20 +27,20 @@ const guardRoute = (route, redirect, next) => {
 }
 
 const login = resolve => {
-  require.ensure(['components/login/login.vue'], () => {
-    resolve(require('components/login/login.vue'))
-  })
+    require.ensure(['components/login/login.vue'], () => {
+        resolve(require('components/login/login.vue'))
+    }, 'user')
 }
 
 const register = resolve => {
-  require.ensure(['components/login/register.vue'], () => {
-    resolve(require('components/login/register.vue'))
-  })
+    require.ensure(['components/login/register.vue'], () => {
+        resolve(require('components/login/register.vue'))
+    }, 'user')
 }
 
 const router = new VueRouter({
     mode: 'hash',
-    base: __dirname,
+    base: '/',
     scrollBehavior,
     routes: [
         { name:'index', path: '/', component: login },
