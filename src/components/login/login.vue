@@ -19,7 +19,7 @@
     import { mapActions, mapGetters } from 'vuex'
     export default {
         mounted: function () {
-            this.form.username = this.getUserName;
+            this.form.username = this.$store.state.user.userName;
         },
         data() {
             return {
