@@ -38,6 +38,18 @@ const register = resolve => {
     }, 'user')
 }
 
+const main = resolve => {
+    require.ensure(['components/main/index.vue'], () => {
+        resolve(require('components/main/index.vue'))
+    }, 'main')
+}
+
+const welcome = resolve => {
+    require.ensure(['components/main/welcome.vue'], () => {
+        resolve(require('components/main/welcome.vue'))
+    }, 'main')
+}
+
 const router = new VueRouter({
     mode: 'hash',
     base: '/',
@@ -45,7 +57,11 @@ const router = new VueRouter({
     routes: [
         { name:'index', path: '/', component: login },
         { name:'login', path: '/login', component: login },
-        { name:'regi', path: '/register', component: register, beforeEnter: guardRoute, meta: {requiresAuth: true }}
+        { name:'regi', path: '/register', component: register},
+        { name:'main', path: '/main', component: main,
+            children: [
+                { path: 'welcome', component: welcome },
+            ],  beforeEnter: guardRoute, meta: {requiresAuth: true }}
     ]
 })
 

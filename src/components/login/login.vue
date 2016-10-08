@@ -46,7 +46,7 @@
                 }
                 api.getDataByVR('api', this.form).then(data => {
                     this.updateUserName(this.form.username)
-                    this.$router.replace({name: 'regi'})
+                    this.$router.replace({name: 'main'})
                 }, error => {
                     this.errorMsg("登录报错，"+error);
                 })
