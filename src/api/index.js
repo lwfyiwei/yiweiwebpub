@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'test') {
 
 Vue.use(VueResource)
 
-Vue.http.options.root = hostdoamin
+Vue.http.options.root = ""
 Vue.http.options.emulateJSON = true
 Vue.http.options.xhr = { withCredentials: true }
 

@@ -24,3 +24,7 @@ export const hideMsg = () => {
 export const updateUserName = ({ commit, rootState }, data) => {
         commit(types.USER_USERNAME, data+rootState.test)
 }
+
+export const updateLoginStatus = ({ commit, state, rootState }, data) => {
+        commit(types.USER_ISLOGIN, data)
+}

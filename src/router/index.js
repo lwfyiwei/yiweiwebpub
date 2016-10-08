@@ -17,10 +17,10 @@ const scrollBehavior = to => {
     return position
 }
 
-const guardRoute = (route, redirect, next) => {
+const guardRoute = (route, current, next) => {
     let isLogin = store.state.user.isLogin
     if (!isLogin) {
-        redirect('/')
+        next('/')
     } else {
         next()
     }

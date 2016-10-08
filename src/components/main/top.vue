@@ -4,10 +4,15 @@
     </div>
 </template>
 <script lang="babel">
+    import { mapActions } from 'vuex'
 	export default {
 
          methods: {
+                ...mapActions({
+                  updateLoginStatus : 'updateLoginStatus'
+                }),
                 logout(index){
+                    this.updateLoginStatus(false)
                     this.$router.replace({name: 'index'})
                 }
             }

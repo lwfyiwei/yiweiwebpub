@@ -36,7 +36,8 @@
         },
         methods: {
             ...mapActions({
-              updateUserName: 'updateUserName'
+              updateUserName: 'updateUserName',
+              updateLoginStatus : 'updateLoginStatus'
             }),
             submitLogin() {
 
@@ -46,6 +47,7 @@
                 }
                 api.getDataByVR('api', this.form).then(data => {
                     this.updateUserName(this.form.username)
+                    this.updateLoginStatus(true)
                     this.$router.replace({name: 'main'})
                 }, error => {
                     this.errorMsg("登录报错，"+error);
