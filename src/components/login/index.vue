@@ -3,6 +3,7 @@
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
+      <div v-loading.fullscreen="fullscreenLoading"></div>
     </div>
 </template>
 <script lang="babel">
@@ -10,7 +11,10 @@
 
 		computed: {
 		  contentheight: function () {
-		    return $(window).height()
+		     return $(window).height()
+		  },
+		  fullscreenLoading: function(){
+		  	 return this.$store.state.loading
 		  }
 		},
 	}
