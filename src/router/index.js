@@ -18,7 +18,7 @@ const scrollBehavior = to => {
     return position
 }
 
-const guardRoute = (route, current, next) => {
+const guardRoute = (to, from, next) => {
     let isLogin = store.state.user.isLogin
     if (!isLogin) {
         Message({
@@ -72,12 +72,12 @@ const router = new VueRouter({
     ]
 })
 
-router.beforeEach((route, redirect, next) => {
+router.beforeEach((to, from, next) => {
     console.log('router.beforeEach')
     next()
 })
 
-router.afterEach(route => {
+router.afterEach(to => {
     console.log('router.afterEach')
 })
 
