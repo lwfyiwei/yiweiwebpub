@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import cookies from 'js-cookie'
 import store from '../store/'
+import { Message } from 'element-ui'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,12 @@ const scrollBehavior = to => {
 const guardRoute = (route, current, next) => {
     let isLogin = store.state.user.isLogin
     if (!isLogin) {
+        Message({
+            message: "请登录系统",
+            type: "error",
+            duration : 2000,
+            showClose : true,
+        })
         next('/')
     } else {
         next()

@@ -1,13 +1,22 @@
 <template>
-    <div class="container">
+    <div class="container" :style="{ height: contentheight + 'px'}">
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
+      <div v-loading.fullscreen="fullscreenLoading"></div>
     </div>
 </template>
 <script lang="babel">
 	export default {
 
+		computed: {
+		  contentheight: function () {
+		     return $(window).height()
+		  },
+		  fullscreenLoading: function(){
+		  	 return this.$store.state.loading
+		  }
+		},
 	}
 </script>
 <style type="text/css" scoped>

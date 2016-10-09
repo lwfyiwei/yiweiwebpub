@@ -55,7 +55,7 @@
       return {
          userRouter : true,
          uniqueOpened : false,
-         topheight : 80,
+         topheight : 60,
       }
     },
 

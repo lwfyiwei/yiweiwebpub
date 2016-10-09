@@ -1,5 +1,5 @@
 <template>
-	<div class="login">
+	<div class="login" :style="{top: contentheightHalf + 'px'}">
         <el-form :model="form" ref="form" label-width="100px" class="content">
             <el-form-item prop="email" label="用户名">
               <el-input v-model="form.username" placeholder="请输入用户名"></el-input>
@@ -19,7 +19,11 @@
     import { mapActions, mapGetters } from 'vuex'
     export default {
         mounted: function () {
-            this.form.username = this.$store.state.user.userName + this.$store.state.test;
+            this.form.username = this.$store.state.user.userName;
+            if(this.$store.state.user.isLogin){
+                this.updateLoginStatus(false)
+                console.log('login change isLogin')
+            }
         },
         data() {
             return {
@@ -32,7 +36,10 @@
         computed : {
             ...mapGetters({
                 getUserName : 'getUserName'
-            })
+            }),
+            contentheightHalf: function () {
+                return Math.round($(window).height()/2) - 152
+            }
         },
         methods: {
             ...mapActions({
@@ -83,14 +90,15 @@
         }
     }
 </script>
-<style>
+<style scoped>
     .login {
         width: 600px;
         margin-left: auto;
         margin-right: auto;
+        position: relative;
     }
     .content {
-        width: 600px;
+        width: 400px;
         margin-left: auto;
         margin-right: auto;
     }
