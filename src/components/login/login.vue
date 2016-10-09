@@ -19,7 +19,7 @@
     import { mapActions, mapGetters } from 'vuex'
     export default {
         mounted: function () {
-            this.form.username = this.$store.state.user.userName + this.$store.state.test;
+            this.form.username = this.$store.state.user.userName;
         },
         data() {
             return {
@@ -88,6 +88,8 @@
         width: 600px;
         margin-left: auto;
         margin-right: auto;
+        position: relative;
+        top: 200px;
     }
     .content {
         width: 600px;
