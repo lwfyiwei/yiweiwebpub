@@ -5,7 +5,7 @@ import VueResource from 'vue-resource'
 
 var hostdoamin = ""
 if(process.env.NODE_ENV === 'production'){
-    hostdoamin = 'http://prod.com'
+    hostdoamin = 'http://localhost:3000'
 }
 
 if (process.env.NODE_ENV === 'test') {

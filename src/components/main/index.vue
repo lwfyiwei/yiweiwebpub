@@ -2,14 +2,14 @@
     <div class="container">
       <el-row>
           <el-col :span="24">
-              <div class="grid-top bg-top">
+              <div :style="{ height: topheight + 'px' }"  class="grid-top bg-top">
                   <top></top>
               </div>
           </el-col>
       </el-row>
       <el-row>
           <el-col :span="4">
-              <div class="grid-left bg-left">
+              <div class="grid-left bg-left" :style="{ height: contentheight + 'px' }">
                   <el-menu default-active="/main/welcome" :unique-opened="uniqueOpened" :router="userRouter" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" >
                     <el-menu-item index="/main/welcome">欢迎页</el-menu-item>
                     <el-submenu index="1">
@@ -34,7 +34,7 @@
               </div>
           </el-col>
           <el-col :span="20">
-              <div class="grid-right bg-right">
+              <div :style="{ height: contentheight + 'px' }" class="grid-right bg-right">
                   <transition name="fade" mode="out-in">
                     <router-view></router-view>
                   </transition>
@@ -54,7 +54,14 @@
     data() {
       return {
          userRouter : true,
-         uniqueOpened : false, 
+         uniqueOpened : false,
+         topheight : 80,
+      }
+    },
+
+    computed: {
+      contentheight: function () {
+        return $(window).height() - this.topheight
       }
     },
 
@@ -85,21 +92,18 @@
       opacity: 0;
 	}
   .grid-top {
-      height: 80px;
       width: 100%
   }
   .bg-top {
       background-color: #475669;
   }
   .grid-left {
-      height: 893px;
       width: 100%
   }
   .bg-left {
       background-color: #D3DCE6;
   }
   .grid-right {
-      height: 870px;
       width: 100%
   }
   .bg-right {
@@ -107,5 +111,5 @@
   }
   .el-menu-item.is-active {
     color: #20a0ff;
-}
+  }
 </style>
