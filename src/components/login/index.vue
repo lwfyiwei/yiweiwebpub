@@ -10,7 +10,7 @@
 
 	}
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 	.container {
         width: 100%;
         margin-left: auto;
