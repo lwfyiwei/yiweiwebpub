@@ -20,8 +20,8 @@ Vue.http.options.emulateJSON = true
 Vue.http.options.timeout = 10000
 Vue.http.options.xhr = { withCredentials: true }
 Vue.http.headers.common['Authorization'] = 'Basic YXBpOnBhc3N3b3Jk';
-Vue.http.options.progress = function(){
-    console.log('Vue.http.options.progress')
+Vue.http.options.before = function(){
+    console.log('Vue.http.options.before')
     store.commit(types.SET_LOADING, true)
 }
 
