@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" :style="{ height: contentheight + 'px'}">
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -8,9 +8,14 @@
 <script lang="babel">
 	export default {
 
+		computed: {
+		  contentheight: function () {
+		    return $(window).height()
+		  }
+		},
 	}
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 	.container {
         width: 100%;
         margin-left: auto;
