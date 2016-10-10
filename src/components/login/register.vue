@@ -46,7 +46,7 @@
         }
 }
 </script>
-<style>
+<style scoped>
  .reg_content{
         width: 600px;
         margin-left: auto;

@@ -53,7 +53,7 @@
                     return false
                 }
                 api.getDataByVR('api', this.form).then(data => {
-                    this.updateUserName(this.form.username)
+                    this.updateUserName(data.username)
                     this.updateLoginStatus(true)
                     this.$router.replace({name: 'main'})
                 }, error => {

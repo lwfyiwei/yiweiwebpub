@@ -6,7 +6,7 @@ import * as types from '../store/mutation-types'
 
 var hostdoamin = ""
 if(process.env.NODE_ENV === 'production'){
-    hostdoamin = 'http://localhost:3000'
+    hostdoamin = ''
 }
 
 if (process.env.NODE_ENV === 'test') {
